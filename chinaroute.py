@@ -27,3 +27,9 @@ twsummary = netaddr.cidr_merge(sorted(twlines))
 twroute_merged = open("twroute_merged.txt", "w", encoding='utf-8')
 twroute_merged.write('\n'.join([ unicode(x) for x in twsummary ]))
 twroute_merged.close()
+
+chinalines = [line.rstrip('\n') for line in open('chinaroute.txt')]
+chinasummary = netaddr.cidr_merge(sorted(chinalines))
+chinaroute_merged = open("chinaroute_merged.txt", "w", encoding='utf-8')
+chinaroute_merged.write('\n'.join([ unicode(x) for x in chinasummary ]))
+chinaroute_merged.close()
