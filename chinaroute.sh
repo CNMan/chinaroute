@@ -8,8 +8,7 @@ cat delegated-all-latest | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $
 cat delegated-all-latest | grep ipv4 | grep HK | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' >hkroute.txt
 cat delegated-all-latest | grep ipv4 | grep MO | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' >moroute.txt
 cat delegated-all-latest | grep ipv4 | grep TW | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' >twroute.txt
-rm chinaroute.txt
-cat cnroute.txt hkroute.txt moroute.txt twroute.txt | sort >>chinaroute.txt
+cat cnroute.txt hkroute.txt moroute.txt twroute.txt | sort >chinaroute.txt
 rm delegated*
 python chinaroute.py
 git add .
