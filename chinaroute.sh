@@ -15,7 +15,7 @@ cat delegated-all-latest | grep ipv6 | grep MO | awk -F\| '{ printf("%s/%d\n", $
 cat delegated-all-latest | grep ipv6 | grep TW | awk -F\| '{ printf("%s/%d\n", $4, $5) }' >twroute_ipv6.txt
 cat cnroute_ipv6.txt hkroute_ipv6.txt moroute_ipv6.txt twroute_ipv6.txt | sort >chinaroute_ipv6.txt
 rm delegated*
-python chinaroute.py
+python3 chinaroute.py
 git add .
 git commit -m "`date`"
 git push origin master
